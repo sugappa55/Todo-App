@@ -22,7 +22,7 @@ const DeletedTasks = () => {
         <p>{e.assignee}</p>
         <p>{e.status}</p>
         <p>{e.priority}</p>
-        <p>{e.days} days{"  "}{e.hours}hours</p>
+        <p>{e.days} {e.days<=1?"day":"days"}{"  "}{e.hours}{e.hours<=1?"hour":"hours"}</p>
       </div>
     ))}
     </div>
