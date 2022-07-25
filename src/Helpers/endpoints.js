@@ -1,2 +1,2 @@
 export const GetTodos="https://todo-backend-api-testing.herokuapp.com/todos"
-export const GetDetedTodos="https://todo-backend-api-testing.herokuapp.com/deleted"
+export const DeletedTodos="https://todo-backend-api-testing.herokuapp.com/deleted"

@@ -11,6 +11,9 @@ function App() {
       <Route path="/" element={<TaskBoard/>}/>
       <Route path="/board" element={<TaskBoard/>}/>
       <Route path="/deletedtasks" element={<DeletedTasks/>}/>
+     < Route path='*' exact={true} element={<TaskBoard/>} />
+      
+
      </Routes>
     </div>
   );
