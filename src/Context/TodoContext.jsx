@@ -19,6 +19,11 @@ const TodoContext = ({children}) => {
       }
     }
 
+    const addTodo=(todo)=>{
+      axios.post(GetTodos,todo).then(()=>getTodos()).catch((e)=>console.log(e.message))
+
+    }
+
     const updateTodo=(id,body)=>{
       try {
         axios.patch(`${GetTodos}/${id}`,body).then(()=>getTodos())
@@ -38,7 +43,7 @@ const TodoContext = ({children}) => {
 
 
   return (
-    <Todo.Provider value={{todos,getTodos,updateTodo,deleteTodo,filtered,setFiltered}}>{children}</Todo.Provider>
+    <Todo.Provider value={{todos,getTodos,addTodo,updateTodo,deleteTodo,filtered,setFiltered}}>{children}</Todo.Provider>
   )
 }
 

@@ -19,7 +19,7 @@ const style = {
 
 export default function AddTask() {
   const [open, setOpen] = React.useState(false);
-  const {getTodos} =React.useContext(Todo)
+  const {addTodo} =React.useContext(Todo)
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [todo,setTodo]=React.useState({
@@ -34,7 +34,7 @@ export default function AddTask() {
 
 const handleSubmit=(e)=>{
   e.preventDefault()
-axios.post(GetTodos,todo).then(()=>getTodos()).catch((e)=>console.log(e.message))
+  addTodo(todo)
 handleClose()
 }
 
@@ -46,7 +46,7 @@ const handleChange=(e)=>{
   return (
     <>
       <div className='w-full flex justify-center'>
-      <button onClick={handleOpen} className="px-6 py-2 border rounded-lg hover:bg-gray-600 bg-blue-600 text-white ">Create Task </button>
+      <button onClick={handleOpen} className="px-6 py-2 border rounded-lg hover:bg-gray-600 bg-blue-600 text-white my-2">Create Task </button>
       </div>
       <Modal
         open={open}
