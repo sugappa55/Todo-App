@@ -13,7 +13,6 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 };
@@ -44,8 +43,8 @@ export default function Delete({todo}) {
          <div className='w-full text-center'>
          <p>Delete {todo.task}</p>
          <div className='w-full justify-around pt-4 flex '>
-            <button className='border px-3 py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer'  onClick={()=>handleClose()}>Close</button>
-            <button className='border px-3 py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer' onClick={()=>handleDelete()}>Delete</button>
+            <button className='border px-3 transition-all ease-in delay-200  py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer'  onClick={()=>handleClose()}>Close</button>
+            <button className='border px-3 transition-all ease-in delay-200  py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer' onClick={()=>handleDelete()}>Delete</button>
          </div>
          </div>
         </Box>

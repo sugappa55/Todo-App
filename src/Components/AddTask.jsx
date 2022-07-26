@@ -1,8 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import axios from 'axios';
-import { GetTodos } from '../Helpers/endpoints';
+
 import { Todo } from '../Context/TodoContext';
 
 const style = {
@@ -12,7 +11,6 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 450,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 };
@@ -94,8 +92,8 @@ const handleChange=(e)=>{
           </select>
 </div>
 <div className='w-full pt-2 justify-around flex '>
-<button className="border px-3 py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer " onClick={()=>handleClose()} >Close</button>
-<input className="border px-3 py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer " type="submit" value="Add Task"/>
+<button className="border px-3 py-1transition-all ease-in delay-200   bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer " onClick={()=>handleClose()} >Close</button>
+<input className="border px-3 py-1 transition-all ease-in delay-200  bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer " type="submit" value="Add Task"/>
 </div>
           </form>
         </Box>

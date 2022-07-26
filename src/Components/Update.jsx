@@ -11,7 +11,6 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 };
@@ -82,14 +81,14 @@ updateTodo(elem.id,todo)
 <div className='w-full border py-2 flex '> 
 
           <label htmlFor="status">Status:</label>  <select value={todo.status}required className='flex-1' id="status" onChange={(e)=>handleChange(e)}>
-            <option value="Todo">Todo</option>
-            <option value="In-Progress">In-Progress</option>
-            <option value="Completed">Completed</option>
+            <option disabled={elem.status==="Todo"} value="Todo">Todo</option>
+            <option disabled={elem.status==="In-Progress"} value="In-Progress">In-Progress</option>
+            <option disabled={elem.status==="Completed"} value="Completed">Completed</option>
           </select>
 </div>
 <div className='w-full pt-2 justify-around flex '>
-<button className="border px-3 py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer " onClick={()=>handleClose()} >Close</button>
-<input className="border px-3 py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer " type="submit" value="Update"/>
+<button className="border transition-all ease-in delay-200   px-3 py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer " onClick={()=>handleClose()} >Close</button>
+<input className="border  transition-all ease-in delay-200 px-3 py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer " type="submit" value="Update"/>
 </div>
           </form>
 </div>

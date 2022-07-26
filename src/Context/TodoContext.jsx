@@ -7,6 +7,11 @@ export const Todo=createContext()
 const TodoContext = ({children}) => {
     const [todos,setTodos]=useState([])
     const [filtered,setFiltered]=useState([])
+    const [alert,setAlert]=useState({
+      open:false,
+      message:"",
+      severity:"success"
+    })
 
     useEffect(()=>{
       getTodos()
@@ -20,30 +25,67 @@ const TodoContext = ({children}) => {
     }
 
     const addTodo=(todo)=>{
-      axios.post(GetTodos,todo).then(()=>getTodos()).catch((e)=>console.log(e.message))
-
+      try {
+        axios.post(GetTodos,todo).then(()=>getTodos())
+        setAlert({
+          ...alert,
+          severity:"success",
+          open:true,
+          message:`${todo.task} added`
+        })
+        
+      } catch (e) {
+        setAlert({
+          ...alert,
+          severity:"error",
+          open:true,
+          message:e.message
+        })
+      }
     }
 
     const updateTodo=(id,body)=>{
       try {
         axios.patch(`${GetTodos}/${id}`,body).then(()=>getTodos())
+        setAlert({
+          ...alert,
+          severity:"success",
+          open:true,
+          message:`${body.task} updated`
+        })
       } catch (e) {
-        console.log(e.message);
+        setAlert({
+          ...alert,
+          severity:"error",
+          open:true,
+          message:e.message
+        })
       }
     }
 
     const deleteTodo=(id)=>{
       try {
         axios.delete(`${GetTodos}/${id}`).then(()=>getTodos())
+        setAlert({
+          ...alert,
+          severity:"success",
+          open:true,
+          message:"Task deleted"
+        })
       } catch (e) {
-        console.log(e.message);
+        setAlert({
+          ...alert,
+          severity:"error",
+          open:true,
+          message:e.message
+        })
       }
     }
     
 
 
   return (
-    <Todo.Provider value={{todos,getTodos,addTodo,updateTodo,deleteTodo,filtered,setFiltered}}>{children}</Todo.Provider>
+    <Todo.Provider value={{todos,getTodos,addTodo,updateTodo,deleteTodo,filtered,setFiltered,alert,setAlert}}>{children}</Todo.Provider>
   )
 }
 

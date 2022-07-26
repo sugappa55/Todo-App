@@ -13,7 +13,7 @@ const TaskBoard = () => {
     <div>
       <AddTask />
       <Filter/>
-      <div className='w-full md:flex justify-between gap-2 flex-wrap'>
+      <div className='w-full lg:flex md:grid md:grid-cols-2 justify-between gap-2 '>
      
        
        {["Todo","In-Progress","Completed"].map(state=>
