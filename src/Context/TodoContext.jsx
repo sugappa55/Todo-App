@@ -51,7 +51,7 @@ const TodoContext = ({children}) => {
           ...alert,
           severity:"success",
           open:true,
-          message:`${body.task} updated`
+          message:`${body.task?body.task:"Task"} updated`
         })
       } catch (e) {
         setAlert({

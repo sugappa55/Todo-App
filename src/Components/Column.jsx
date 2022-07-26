@@ -1,12 +1,11 @@
 import { CircularProgress } from '@mui/material'
-import axios from 'axios'
 import React, { useContext } from 'react'
-import { Todo } from '../Context/TodoContext'
-import { GetTodos } from '../Helpers/endpoints'
+import  { Todo } from '../Context/TodoContext'
 import Delete from './Delete'
 import Update from './Update'
 
 const Column = ({Status}) => {
+  const {updateTodo}=useContext(Todo)
   function allowDrop(ev) {
     ev.preventDefault();
   }
@@ -19,8 +18,10 @@ const Column = ({Status}) => {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     if(!data)return
-    axios.patch(`${GetTodos}/${data}`,{status:ev.target.id})
-    ev.target.appendChild(document.getElementById(data));
+    // axios.patch(`${GetTodos}/${data}`,{status:ev.target.id})
+    // ev.target.appendChild(document.getElementById(data));
+    updateTodo(data,{status:ev.target.id})
+    
   }
 
     const {filtered}=useContext(Todo)
