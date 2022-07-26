@@ -13,12 +13,11 @@ const TaskBoard = () => {
     <div>
       <AddTask />
       <Filter/>
-      <div className='w-full flex justify-between gap-2'>
-       <Column Status={"Todo"}/>
-       <Column Status={"In-Progress"}/>
-       <Column Status={"Completed"}/>
+      <div className='w-full md:flex justify-between gap-2 flex-wrap'>
+     
        
-       
+       {["Todo","In-Progress","Completed"].map(state=>
+       <Column Status={state} key={state}/>)}
       </div>
     </div>
   )
