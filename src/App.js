@@ -6,7 +6,7 @@ import ActionAlerts from "./Components/Alert";
 
 function App() {
   return (
-    <div >
+     <div >
      <Navbar/>
      <Routes>
       <Route path="/" element={<TaskBoard/>}/>

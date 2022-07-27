@@ -1,28 +1,29 @@
 import axios from 'axios'
 import React, { createContext, useEffect, useState } from 'react'
 import { GetTodos } from '../Helpers/endpoints'
+import {useQuery} from "react-query"
 
 export const Todo=createContext()
 
 const TodoContext = ({children}) => {
-    const [todos,setTodos]=useState([])
-    const [filtered,setFiltered]=useState([])
+    // const [todos,setTodos]=useState([])
     const [alert,setAlert]=useState({
       open:false,
       message:"",
       severity:"success"
     })
-
-    useEffect(()=>{
-      getTodos()
-    },[])
-    const getTodos=()=>{
-      try {
-        axios.get(GetTodos).then((res)=>{setTodos(res.data);setFiltered(res.data)})
-      } catch (e) {
-        console.log(e.message);
+    // useEffect(()=>{
+      //   getTodos()
+      // },[])
+      const getTodos=()=>{
+        try {
+          return axios.get(GetTodos).then((res)=>{return res.data })
+        } catch (e) {
+          console.log(e.message);
+        }
       }
-    }
+      const {isLoading,data}=useQuery(["todos"],getTodos)
+      const [filtered,setFiltered]=useState([])
 
     const addTodo=(todo)=>{
       try {
@@ -85,7 +86,7 @@ const TodoContext = ({children}) => {
 
 
   return (
-    <Todo.Provider value={{todos,getTodos,addTodo,updateTodo,deleteTodo,filtered,setFiltered,alert,setAlert}}>{children}</Todo.Provider>
+    <Todo.Provider value={{todos:data,getTodos,addTodo,updateTodo,deleteTodo,filtered:data,setFiltered,alert,setAlert,isLoading}}>{children}</Todo.Provider>
   )
 }
 

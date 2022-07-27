@@ -18,18 +18,16 @@ const Column = ({Status}) => {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     if(!data)return
-    // axios.patch(`${GetTodos}/${data}`,{status:ev.target.id})
-    // ev.target.appendChild(document.getElementById(data));
     updateTodo(data,{status:ev.target.id})
     
   }
 
-    const {filtered}=useContext(Todo)
+    const {filtered,isLoading}=useContext(Todo)
   return (
     <div className=' flex-1 text-center  border lg:h-screen md:h-[500px]' id={Status} onDragOver={(e)=>allowDrop(e)} onDrop={(e)=>drop(e)}>
     <p className=' py-2 border bg-green-500'>{Status}</p>
     {
-      filtered.length?(filtered.filter(e=>e.status===Status).map(e=>(
+      !isLoading?(filtered?.filter(e=>e.status===Status).map(e=>(
         <div key={e.id} className="flex w-full justify-between py-2 gap-2 my-2 border md:cursor-grab" draggable id={e.id} onDragStart={(e)=>drag(e)}>
         <p className='flex-1'>{e.task}</p>
         <div className='flex px-2 gap-4'>
