@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import { GetTodos } from '../Helpers/endpoints'
 import {useQuery} from "react-query"
 
@@ -23,7 +23,7 @@ const TodoContext = ({children}) => {
         }
       }
       const {isLoading,data}=useQuery(["todos"],getTodos)
-      const [filtered,setFiltered]=useState([])
+     
 
     const addTodo=(todo)=>{
       try {
@@ -86,7 +86,7 @@ const TodoContext = ({children}) => {
 
 
   return (
-    <Todo.Provider value={{todos:data,getTodos,addTodo,updateTodo,deleteTodo,filtered:data,setFiltered,alert,setAlert,isLoading}}>{children}</Todo.Provider>
+    <Todo.Provider value={{todos:data,getTodos,addTodo,updateTodo,deleteTodo,filtered:data,alert,setAlert,isLoading}}>{children}</Todo.Provider>
   )
 }
 
