@@ -18,6 +18,8 @@ const Column = ({Status}) => {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     if(!data)return
+    // axios.patch(`${GetTodos}/${data}`,{status:ev.target.id})
+    // ev.target.appendChild(document.getElementById(data));
     updateTodo(data,{status:ev.target.id})
     
   }

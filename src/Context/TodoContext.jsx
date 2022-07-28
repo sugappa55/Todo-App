@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { GetTodos } from '../Helpers/endpoints'
 import {useQuery} from "react-query"
 
@@ -22,12 +22,14 @@ const TodoContext = ({children}) => {
           console.log(e.message);
         }
       }
-      const {isLoading,data}=useQuery(["todos"],getTodos)
+      const {isLoading,data,refetch}=useQuery(["todos"],getTodos,{enabled:true})
+      const [filtered,setFiltered]=useState([])
+     useEffect(()=>{ if(!isLoading)setFiltered(data)},[isLoading,data])
      
 
     const addTodo=(todo)=>{
       try {
-        axios.post(GetTodos,todo).then(()=>getTodos())
+        axios.post(GetTodos,todo).then(()=>refetch())
         setAlert({
           ...alert,
           severity:"success",
@@ -47,7 +49,7 @@ const TodoContext = ({children}) => {
 
     const updateTodo=(id,body)=>{
       try {
-        axios.patch(`${GetTodos}/${id}`,body).then(()=>getTodos())
+        axios.patch(`${GetTodos}/${id}`,body).then(()=>refetch())
         setAlert({
           ...alert,
           severity:"success",
@@ -66,7 +68,7 @@ const TodoContext = ({children}) => {
 
     const deleteTodo=(id)=>{
       try {
-        axios.delete(`${GetTodos}/${id}`).then(()=>getTodos())
+        axios.delete(`${GetTodos}/${id}`).then(()=>refetch())
         setAlert({
           ...alert,
           severity:"success",
@@ -86,7 +88,7 @@ const TodoContext = ({children}) => {
 
 
   return (
-    <Todo.Provider value={{todos:data,getTodos,addTodo,updateTodo,deleteTodo,filtered:data,alert,setAlert,isLoading}}>{children}</Todo.Provider>
+    <Todo.Provider value={{todos:data,getTodos,addTodo,updateTodo,deleteTodo,filtered,setFiltered,alert,setAlert,isLoading}}>{children}</Todo.Provider>
   )
 }
 
