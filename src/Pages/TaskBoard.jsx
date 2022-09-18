@@ -17,7 +17,7 @@ export const TaskBoard = () => {
      
        
        {["Todo","In-Progress","Completed"].map(state=>
-       <div key={state} className='m-4 md:m-2 lg:m-1'><Column Status={state}/></div>
+       <div key={state} className='m-4 md:m-2 lg:m-1 flex-1'><Column Status={state}/></div>
        )}
       </div>
     </div>

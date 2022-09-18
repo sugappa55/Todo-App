@@ -26,11 +26,11 @@ const Column = ({Status}) => {
 
     const {filtered,isLoading}=useContext(Todo)
   return (
-    <div className=' flex-1 text-center  border lg:h-screen md:h-[500px] m-auto' id={Status} onDragOver={(e)=>allowDrop(e)} onDrop={(e)=>drop(e)}>
-    <p className=' py-2 border bg-green-500'>{Status}</p>
+    <div className='text-center px-2  border lg:h-screen md:h-[500px] m-auto' id={Status} onDragOver={(e)=>allowDrop(e)} onDrop={(e)=>drop(e)}>
+    <p className=' py-2 mx-[-.5rem]  bg-green-500'>{Status}</p>
     {
       !isLoading?(filtered?.filter(e=>e.status===Status).map(e=>(
-        <div key={e.id} className="flex w-full justify-between py-2 gap-2 my-2 border md:cursor-grab" draggable id={e.id} onDragStart={(e)=>drag(e)}>
+        <div key={e.id} className="flex w-full justify-between py-2 gap-2 my-2 hover:border md:cursor-grab" draggable id={e.id} onDragStart={(e)=>drag(e)}>
         <p className='flex-1'>{e.task}</p>
         <div className='flex px-2 gap-4'>
         <Update elem={e}/>       
