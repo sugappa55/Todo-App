@@ -3,7 +3,7 @@ import Filter from '../Components/Filter'
 
 import Column from '../Components/Column'
 
-const TaskBoard = () => {
+export const TaskBoard = () => {
 
   
 
@@ -17,10 +17,11 @@ const TaskBoard = () => {
      
        
        {["Todo","In-Progress","Completed"].map(state=>
-       <Column Status={state} key={state}/>)}
+       <div key={state} className='m-4 md:m-2 lg:m-1'><Column Status={state}/></div>
+       )}
       </div>
     </div>
   )
 }
 
-export default TaskBoard
+

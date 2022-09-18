@@ -6,15 +6,13 @@ import {useQuery} from "react-query"
 export const Todo=createContext()
 
 const TodoContext = ({children}) => {
-    // const [todos,setTodos]=useState([])
+  
     const [alert,setAlert]=useState({
       open:false,
       message:"",
       severity:"success"
     })
-    // useEffect(()=>{
-      //   getTodos()
-      // },[])
+
       const getTodos=()=>{
         try {
           return axios.get(GetTodos).then((res)=>{return res.data })
