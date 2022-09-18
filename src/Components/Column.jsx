@@ -19,7 +19,9 @@ const Column = ({Status}) => {
     var data = ev.dataTransfer.getData("text");
     let id=ev.target.id;
 
-    if(!data&&(id==="Todo"||id==="In-Progress"||id==="Completed"))return
+    if(!data||typeof(id)===Number||id==="")return
+    console.log(data);
+    console.log(id);
     updateTodo(data,{status:ev.target.id})
     
   }
