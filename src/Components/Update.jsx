@@ -87,8 +87,8 @@ updateTodo(elem.id,todo)
           </select>
 </div>
 <div className='w-full pt-2 justify-around flex '>
-<button className="border transition-all ease-in-out delay-200   px-3 py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer " onClick={()=>handleClose()} >Close</button>
-<input className="border  transition-all ease-in-out delay-200 px-3 py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer " type="submit" value="Update"/>
+<button className="border transition-all ease-in-out delay-200   px-3 py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer text-white" onClick={()=>handleClose()} >Close</button>
+<input className="border  transition-all ease-in-out delay-200 px-3 py-1 bg-blue-600 rounded-lg hover:bg-gray-600 cursor-pointer text-white" type="submit" value="Update"/>
 </div>
           </form>
 </div>

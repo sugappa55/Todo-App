@@ -32,7 +32,7 @@ const Column = ({Status}) => {
     <p className=' py-2 mx-[-.5rem]  bg-green-500'>{Status}</p>
     {
       !isLoading?(filtered?.filter(e=>e.status===Status).map(e=>(
-        <div key={e.id} className="flex w-full justify-between py-2 gap-2 my-2 hover:border md:cursor-grab" draggable id={e.id} onDragStart={(e)=>drag(e)}>
+        <div key={e.id} className="flex w-full justify-between py-2 gap-2 my-2 hover:border hover:bg-gray-600 hover:text-white md:cursor-grab" draggable id={e.id} onDragStart={(e)=>drag(e)}>
         <p className='flex-1'>{e.task}</p>
         <div className='flex px-2 gap-4'>
         <Update elem={e}/>       

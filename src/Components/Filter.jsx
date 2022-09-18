@@ -15,7 +15,7 @@ const Filter = () => {
     <div className='w-full py-2 flex  flex-wrap gap-y-2 justify-around '>
         <input onChange={(e)=>handleChange(e)} className="px-3 border flex-1 m-2  py-2" type="text" name="" id="task" placeholder='Search for a task' />
         <input onChange={(e)=>handleChange(e)}className="px-3  border flex-1 m-2 py-2" type="text" placeholder='Filter by assignee ' id="assignee"/>
-        <button className="bg-blue-600 rounded-lg hover:bg-gray-600 px-4 m-2 py-2" onClick={()=>setFiltered(todos)}>Clear  Filters</button>
+        <button className="bg-blue-600 rounded-lg text-white hover:bg-gray-600 px-4 m-2 py-2" onClick={()=>setFiltered(todos)}>Clear  Filters</button>
 
     </div>
   )
