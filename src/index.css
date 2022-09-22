@@ -5,3 +5,6 @@
 input{
     outline: none;
 }
+.column::-webkit-scrollbar{
+    display: none;
+}
