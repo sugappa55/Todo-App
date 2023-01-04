@@ -28,12 +28,12 @@ const Column = ({ Status }) => {
   const { filtered, isLoading } = useContext(Todo);
   return (
     <div
-      className="text-center px-2 border lg:h-[700px] md:h-[500px] m-auto overflow-y-scroll column"
+      className="text-center border lg:h-[65vh] md:h-[80vh] m-auto overflow-y-scroll column relative"
       id={Status}
       onDragOver={(e) => allowDrop(e)}
       onDrop={(e) => drop(e)}
     >
-      <p className=" py-2 mx-[-.5rem]  bg-green-500">{Status}</p>
+      <p className=" p-2  bg-green-500 sticky top-0 w-full">{Status}</p>
       {!isLoading ? (
         filtered
           ?.filter((e) => e.status === Status)

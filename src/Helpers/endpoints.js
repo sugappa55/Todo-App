@@ -1,2 +1,2 @@
-export const GetTodos="https://todo-web-api-backend.herokuapp.com/todos"
-export const DeletedTodos="https://todo-web-api-backend.herokuapp.com/deleted"
+export const GetTodos="http://localhost:8080/todos"
+export const DeletedTodos="http://localhost:8080/deleted"

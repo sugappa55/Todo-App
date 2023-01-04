@@ -62,7 +62,7 @@ export default function Update({ elem }) {
                     onChange={(e) => handleChange(e)}
                     required
                     type="text"
-                    className="flex-1"
+                    className="flex-1 border ml-4 rounded-lg text-center"
                     id="task"
                     placeholder="Enter task name"
                   />
@@ -93,6 +93,7 @@ export default function Update({ elem }) {
                     required
                     placeholder="Enter Assignee"
                     id="assignee"
+                    className="border ml-4 rounded-lg text-center"
                     onChange={(e) => handleChange(e)}
                   />
                 </div>
@@ -104,14 +105,14 @@ export default function Update({ elem }) {
                     value={todo.days}
                     required
                     min={0}
-                    className="w-32 text-center border  rounded-lg mx-1"
+                    className="w-32 text-center border rounded-lg mx-1"
                     id="days"
                     placeholder="enter no of days"
                     onChange={(e) => handleChange(e)}
                   />
                   <input
                     type="number"
-                    className="w-30 text-center border  rounded-lg mx-1"
+                    className="w-30 text-center border rounded-lg mx-1"
                     min={0}
                     max={23}
                     required
