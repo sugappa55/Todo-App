@@ -1,7 +1,7 @@
 
 # To run the project on local
 
-- git clone <repo link>
+- git clone https://github.com/sugappa55/Todo-App.git
 - npm install 
 
 ## Run the following commands in different terminals
