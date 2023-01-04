@@ -1,9 +1,12 @@
 
 # To run the project on local
-## Run the following commands in different terminals
 
+- git clone <repo link>
+- npm install 
+
+## Run the following commands in different terminals
 - npm run start
-- npm run serve-api
+- npm run serve-api (If you are not able to run this command install **json-server** to your project)
 
 ### Todos List
 ![image](https://user-images.githubusercontent.com/110449739/210621251-1001f8f8-7586-4732-bab5-78285122eacd.png)
